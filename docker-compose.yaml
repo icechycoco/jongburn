@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    common:
+        build: .
+        working_dir: /usr/app
+        image: node:10.16.0-alpine
+        command: ['/bin/sh', '-c', 'yarn && yarn dev']
+        environment:
+            PORT: 3000
+            MAP_APP_ID: jongburn-api-9x0q8
+            MAP_API_KEY: M2Y4NGQ2YTgzYmE1ZmJjMzQxOTlmN2I4N2Y5NzdmNTE
+            SERVICE_API: http://localhost:5000/v1
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/usr/app
